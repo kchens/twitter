@@ -63,10 +63,11 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                         print("user: \(response)")
                         var user = User(dictionary: response as! NSDictionary)
                         print("user is named \(user.name!)")
-                    }, failure: { (operation, error) -> Void in
-                        print("error: \(error)")
-                    }
-                )
+                        self.loginCompletion?(user: user, error: nil)
+                }, failure: { (operation, verifyCredentialsError) -> Void in
+                        print("error: \(verifyCredentialsError)")
+                        self.loginCompletion?(user: nil, error: verifyCredentialsError)
+                })
                 
                 TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil,
                     success: { (operation, response) -> Void in
@@ -77,13 +78,12 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                             print("tweet: \(tweet.text), created: \(tweet.createdAt)")
                         }
                         
-                    }, failure: { (operation, error) -> Void in
+                }, failure: { (operation, error) -> Void in
                         print("error getting current user")
-                    }
-                )
-            }, failure: { (error) -> Void in
-                print("Failed to receive access tokens: \(error)")
-            }
-        )
+                })
+            }, failure: { (homeTimelineError) -> Void in
+                print("Failed to receive access tokens: \(homeTimelineError)")
+                self.loginCompletion?(user: nil, error: homeTimelineError)
+            })
     }
 }
