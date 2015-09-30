@@ -62,6 +62,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                     success: { (operation, response) -> Void in
                         print("user: \(response)")
                         var user = User(dictionary: response as! NSDictionary)
+                        User.currentUser = user
                         print("user is named \(user.name!)")
                         self.loginCompletion?(user: user, error: nil)
                 }, failure: { (operation, verifyCredentialsError) -> Void in

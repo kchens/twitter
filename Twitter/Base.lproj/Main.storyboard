@@ -23,10 +23,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="UY5-8b-aNG" kind="modal" identifier="loginSegue" id="m0w-7X-g07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.66666666666666" y="319.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8Ci-Rw-oHO">
+            <objects>
+                <viewController id="UY5-8b-aNG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zDw-p8-28o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="loU-iA-rQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="531" y="319"/>
         </scene>
     </scenes>
 </document>
