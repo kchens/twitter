@@ -14,18 +14,19 @@ let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
     
-//    static let sharedInstance = TwitterClient(baseURL: twitterBaseURL,
-//        consumerKey: twitterConsumerKey,
-//        consumerSecret: twitterConsumerSecret)
+    static let sharedInstance = TwitterClient(baseURL: twitterBaseURL,
+        consumerKey: twitterConsumerKey,
+        consumerSecret: twitterConsumerSecret)
     
-    class var sharedInstance: TwitterClient  {
-        struct Static {
-            static let instance = TwitterClient(baseURL: twitterBaseURL,
-                consumerKey: twitterConsumerKey,
-                consumerSecret: twitterConsumerSecret)
-        }
-        
-        return Static.instance
-    }
+    // Singleton pattern
+//    class var sharedInstance: TwitterClient  {
+//        struct Static {
+//            static let instance = TwitterClient(baseURL: twitterBaseURL,
+//                consumerKey: twitterConsumerKey,
+//                consumerSecret: twitterConsumerSecret)
+//        }
+//        
+//        return Static.instance
+//    }
     
 }
