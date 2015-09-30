@@ -12,16 +12,31 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Add "myself" as an observer. And call the userDidLogout function.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        
         if User.currentUser != nil {
             // Go to logged in screen
             print("Current user detected:  \(User.currentUser!.name!)")
+            let vc = storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController as UIViewController
+            
+            // Reset the root view controller to any controller we want. Here, vc.
+            window?.rootViewController = vc
         }
         return true
+    }
+    
+    func userDidLogout() {
+        let vc = storyBoard.instantiateInitialViewController()
+        
+        // Reset the root view controller to any controller we want. Here, vc.
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {

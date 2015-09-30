@@ -31,6 +31,20 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
 //        return Static.instance
 //    }
     
+    func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation, response) -> Void in
+            print("Home timeline: \(response)")
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            //                for tweet in tweets {
+            //                    print("tweet: \(tweet.text), created: \(tweet.createdAt)")
+            //                }
+            }, failure: { (operation, error) -> Void in
+                print("error getting current user")
+                completion(tweets: nil, error: error)
+        })
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         // Because this is a multi-step function, there is no way to 
         // loginCompletion holds closure until we're ready to use it.
@@ -70,18 +84,18 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                         self.loginCompletion?(user: nil, error: verifyCredentialsError)
                 })
                 
-                TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil,
-                    success: { (operation, response) -> Void in
-                        print("Home timeline: \(response)")
-                        var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                        
-                        for tweet in tweets {
-                            print("tweet: \(tweet.text), created: \(tweet.createdAt)")
-                        }
-                        
-                }, failure: { (operation, error) -> Void in
-                        print("error getting current user")
-                })
+//                TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil,
+//                    success: { (operation, response) -> Void in
+//                        print("Home timeline: \(response)")
+//                        var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+//                        
+//                        for tweet in tweets {
+//                            print("tweet: \(tweet.text), created: \(tweet.createdAt)")
+//                        }
+//                        
+//                }, failure: { (operation, error) -> Void in
+//                        print("error getting current user")
+//                })
             }, failure: { (homeTimelineError) -> Void in
                 print("Failed to receive access tokens: \(homeTimelineError)")
                 self.loginCompletion?(user: nil, error: homeTimelineError)
