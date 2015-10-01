@@ -3,10 +3,6 @@
 
 platform :ios, "8.0"
 
-use_frameworks! 
+pod 'AFNetworking'
+pod "BDBOAuth1Manager"
 
-target 'Twitter' do
-  pod 'AFNetworking', '~> 2.6.0'
-  pod 'MBProgressHUD', '~> 0.9.1'
-  pod "BDBOAuth1Manager"
-end
