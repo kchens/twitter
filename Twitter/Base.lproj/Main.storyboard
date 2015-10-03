@@ -63,8 +63,8 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="Created At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-eQ-swA">
                                                     <rect key="frame" x="491" y="20" width="70" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tweet Description Tons of Stuff here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-ei-kTm">
@@ -75,7 +75,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Real Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVt-px-KM2">
                                                     <rect key="frame" x="97" y="19" width="70" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -86,29 +86,39 @@
                                                         <constraint firstAttribute="width" constant="60" id="ZAs-17-DWD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6B-fs-Bar">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6B-fs-Bar">
                                                     <rect key="frame" x="239" y="19" width="67" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ecV-5h-lEM" secondAttribute="bottom" constant="12" id="195-iM-vMy"/>
+                                                <constraint firstItem="z6B-fs-Bar" firstAttribute="baseline" secondItem="CVt-px-KM2" secondAttribute="baseline" id="2yT-zp-NkL"/>
                                                 <constraint firstAttribute="trailing" secondItem="CaB-eQ-swA" secondAttribute="trailing" constant="8" id="65q-iJ-bUq"/>
                                                 <constraint firstItem="CaB-eQ-swA" firstAttribute="baseline" secondItem="CVt-px-KM2" secondAttribute="baseline" id="9KB-fR-MOe"/>
                                                 <constraint firstItem="tZ5-ei-kTm" firstAttribute="top" secondItem="CVt-px-KM2" secondAttribute="bottom" constant="4" id="Bep-N1-B84"/>
-                                                <constraint firstItem="z6B-fs-Bar" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CVt-px-KM2" secondAttribute="trailing" constant="4" id="DTN-yb-y9u"/>
+                                                <constraint firstItem="z6B-fs-Bar" firstAttribute="leading" secondItem="CVt-px-KM2" secondAttribute="trailing" constant="4" id="DTN-yb-y9u"/>
                                                 <constraint firstItem="z6B-fs-Bar" firstAttribute="baseline" secondItem="CVt-px-KM2" secondAttribute="baseline" id="EhC-Kb-7Mw"/>
                                                 <constraint firstItem="tZ5-ei-kTm" firstAttribute="leading" secondItem="CVt-px-KM2" secondAttribute="leading" id="JgU-c6-X0P"/>
-                                                <constraint firstItem="CVt-px-KM2" firstAttribute="top" secondItem="Nuu-nU-GRt" secondAttribute="top" constant="8" id="UVV-8x-GWC"/>
+                                                <constraint firstItem="CVt-px-KM2" firstAttribute="top" secondItem="Nuu-nU-GRt" secondAttribute="top" constant="12" id="UVV-8x-GWC"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tZ5-ei-kTm" secondAttribute="bottom" constant="8" id="X3x-mv-30U"/>
                                                 <constraint firstItem="CaB-eQ-swA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="z6B-fs-Bar" secondAttribute="trailing" constant="20" id="XQc-0M-ZUX"/>
-                                                <constraint firstItem="ecV-5h-lEM" firstAttribute="top" secondItem="Nuu-nU-GRt" secondAttribute="top" constant="8" id="j7F-Gx-TM9"/>
+                                                <constraint firstItem="CaB-eQ-swA" firstAttribute="baseline" secondItem="CVt-px-KM2" secondAttribute="baseline" id="anK-id-ipK"/>
+                                                <constraint firstItem="ecV-5h-lEM" firstAttribute="top" secondItem="Nuu-nU-GRt" secondAttribute="top" constant="12" id="j7F-Gx-TM9"/>
+                                                <constraint firstItem="z6B-fs-Bar" firstAttribute="baseline" secondItem="CVt-px-KM2" secondAttribute="baseline" id="kwN-jn-T7Q"/>
                                                 <constraint firstItem="ecV-5h-lEM" firstAttribute="leading" secondItem="Nuu-nU-GRt" secondAttribute="leading" constant="8" id="ogA-vR-lUK"/>
                                                 <constraint firstAttribute="trailing" secondItem="tZ5-ei-kTm" secondAttribute="trailing" constant="8" id="rJL-em-OGx"/>
                                                 <constraint firstItem="CVt-px-KM2" firstAttribute="leading" secondItem="ecV-5h-lEM" secondAttribute="trailing" constant="4" id="rtS-9s-36V"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2yT-zp-NkL"/>
+                                                    <exclude reference="EhC-Kb-7Mw"/>
+                                                    <exclude reference="9KB-fR-MOe"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="tweetCreatedAtLabel" destination="CaB-eQ-swA" id="XhW-un-fOz"/>

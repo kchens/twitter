@@ -23,7 +23,7 @@ class Tweet: NSObject {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = formatter.dateFromString(createdAtString!)
-//        createdAt = formatTimeElapsed(createdAt?)
+        createdAtString = "10s"
         
     }
     
@@ -37,12 +37,12 @@ class Tweet: NSObject {
         return tweets
     }
     
-    func formatTimeElapsed(sinceDate: NSDate) -> String {
+    func formatTimeElapsed() -> String {
         let formatter = NSDateComponentsFormatter()
         formatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Abbreviated
         formatter.collapsesLargestUnit = true
         formatter.maximumUnitCount = 1
-        let interval = NSDate().timeIntervalSinceDate(sinceDate)
+        let interval = NSDate().timeIntervalSinceDate(NSDate())
         return formatter.stringFromTimeInterval(interval)!
     }
 }

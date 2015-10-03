@@ -24,6 +24,7 @@ class User: NSObject {
         self.dictionary = dictionary
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
+        screenname = "@\(screenname!)"
         profileImageUrl = dictionary["profile_image_url"] as? String
         tagline = dictionary["description"] as? String
     }
