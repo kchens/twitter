@@ -18,6 +18,7 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
     @IBOutlet weak var tweetBoxTextView: UITextView!
+    @IBOutlet weak var tweetCharCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +91,9 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        print("TweetBoxTextView:  \(tweetBoxTextView.text.characters.count)")
         // Reset a tweet character count to the characters here.
+        let characterCount = 140 - tweetBoxTextView.text.characters.count
+        tweetCharCountLabel.text = String(characterCount)
     }
     
     /*

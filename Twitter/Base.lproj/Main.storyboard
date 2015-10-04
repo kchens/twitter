@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -224,6 +225,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-98-hJE">
+                                <rect key="frame" x="551" y="123" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,13 +242,16 @@
                             <constraint firstItem="xzU-1k-aiO" firstAttribute="centerX" secondItem="kXt-EH-DJf" secondAttribute="centerX" id="G0z-3T-DkT"/>
                             <constraint firstItem="xzU-1k-aiO" firstAttribute="centerY" secondItem="kXt-EH-DJf" secondAttribute="centerY" id="IV4-f5-wfO"/>
                             <constraint firstItem="CGa-Ho-4md" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fGY-pJ-Ero" secondAttribute="bottom" constant="12" id="MiK-gY-2Oj"/>
+                            <constraint firstItem="3iw-98-hJE" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kXt-EH-DJf" secondAttribute="trailingMargin" constant="8" id="NkP-3d-ehl"/>
                             <constraint firstItem="4n7-Ra-f6i" firstAttribute="centerY" secondItem="kXt-EH-DJf" secondAttribute="centerY" id="Oxm-Mg-TV2"/>
+                            <constraint firstItem="3iw-98-hJE" firstAttribute="bottom" secondItem="CGa-Ho-4md" secondAttribute="bottom" id="Qfa-jn-nbl"/>
                             <constraint firstAttribute="trailing" secondItem="4n7-Ra-f6i" secondAttribute="trailing" constant="8" id="SKK-v5-tPE"/>
                             <constraint firstItem="d58-mI-xj2" firstAttribute="leading" secondItem="kXt-EH-DJf" secondAttribute="leading" constant="8" id="dgY-QL-l7X"/>
                             <constraint firstAttribute="trailing" secondItem="d58-mI-xj2" secondAttribute="trailing" constant="8" id="evZ-tW-bzl"/>
                             <constraint firstItem="d58-mI-xj2" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="12" id="lF3-0m-i96"/>
                             <constraint firstItem="fGY-pJ-Ero" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="12" id="lTB-XK-9t9"/>
                             <constraint firstItem="4n7-Ra-f6i" firstAttribute="leading" secondItem="kXt-EH-DJf" secondAttribute="leading" constant="8" id="mG2-vO-2gQ"/>
+                            <constraint firstItem="3iw-98-hJE" firstAttribute="baseline" secondItem="CGa-Ho-4md" secondAttribute="baseline" id="xiq-xh-efP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -253,6 +263,7 @@
                     </view>
                     <connections>
                         <outlet property="tweetBoxTextView" destination="4n7-Ra-f6i" id="yqs-U6-4hF"/>
+                        <outlet property="tweetCharCountLabel" destination="3iw-98-hJE" id="Rze-nO-Y9k"/>
                         <outlet property="tweetUserImageView" destination="d58-mI-xj2" id="rYG-cD-R8A"/>
                         <outlet property="tweetUserNameLabel" destination="fGY-pJ-Ero" id="MBM-2C-i4X"/>
                         <outlet property="tweetUserScreenNameLabel" destination="CGa-Ho-4md" id="ypu-c9-ufn"/>
