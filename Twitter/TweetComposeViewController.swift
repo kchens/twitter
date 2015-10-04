@@ -85,7 +85,13 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
                 tweetBoxTextView.text = ""
             }
         }
+        print("TweetBoxTextView:  \(tweetBoxTextView.text.characters.count)")
         return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        print("TweetBoxTextView:  \(tweetBoxTextView.text.characters.count)")
+        // Reset a tweet character count to the characters here.
     }
     
     /*

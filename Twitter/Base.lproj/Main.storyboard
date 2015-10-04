@@ -355,6 +355,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="xh6-RO-lYb" id="0MH-R4-yb7"/>
+                        <outlet property="retweetButton" destination="oY8-Tf-emJ" id="y1U-by-zXW"/>
                         <outlet property="tweetCreatedAtLabel" destination="h37-0o-WQ4" id="yYm-eb-mUW"/>
                         <outlet property="tweetDescriptionLabel" destination="bFK-dE-r4p" id="PXn-Ka-rCE"/>
                         <outlet property="tweetUserImageView" destination="uzX-Jg-4SO" id="ndc-k0-6ji"/>

@@ -18,6 +18,9 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var tweetCreatedAtLabel: UILabel!
     @IBOutlet weak var tweetDescriptionLabel: UILabel!
     
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +44,7 @@ class TweetDetailsViewController: UIViewController {
                 print("TweetDetailsViewController - Retweeted error: \(error)")
             } else {
                 print("TweetDetailsViewController - Got retweeted")
+                self.retweetButton.setTitle("Retweeted", forState: .Normal)
             }
         }
     }
@@ -51,6 +55,7 @@ class TweetDetailsViewController: UIViewController {
                 print("TweetDetailsViewController - Favorited error: \(error)")
             } else {
                 print("TweetDetailsViewController - Got favorited")
+                self.favoriteButton.setTitle("Favorited", forState: .Normal)
             }
         }
     }
