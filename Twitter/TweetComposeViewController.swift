@@ -10,9 +10,16 @@ import UIKit
 
 class TweetComposeViewController: UIViewController {
 
+    @IBOutlet weak var tweetUserImageView: UIImageView!
+    @IBOutlet weak var tweetUserNameLabel: UILabel!
+    @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
+    @IBOutlet weak var tweetBoxTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tweetUserImageView.setImageWithURL(NSURL(string: User.currentUser!.profileImageUrl!))
+        tweetUserNameLabel.text = User.currentUser!.name
+        tweetUserScreenNameLabel.text = User.currentUser!.screenname
+        
         // Do any additional setup after loading the view.
     }
 

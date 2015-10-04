@@ -92,13 +92,6 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLt-u0-K6Q">
-                                                    <rect key="frame" x="17" y="78" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <segue destination="XXP-1K-fP4" kind="show" id="NHK-IY-Huf"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ecV-5h-lEM" secondAttribute="bottom" constant="12" id="195-iM-vMy"/>
@@ -242,6 +235,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tweetBoxTextView" destination="4n7-Ra-f6i" id="yqs-U6-4hF"/>
+                        <outlet property="tweetUserImageView" destination="d58-mI-xj2" id="rYG-cD-R8A"/>
+                        <outlet property="tweetUserNameLabel" destination="fGY-pJ-Ero" id="MBM-2C-i4X"/>
+                        <outlet property="tweetUserScreenNameLabel" destination="CGa-Ho-4md" id="ypu-c9-ufn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aP-Am-gCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,7 +249,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yQe-Xn-mor">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pim-yl-h8H" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerToTweets" automaticallyAdjustsScrollViewInsets="NO" id="pim-yl-h8H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ir-hf-TVt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,7 +265,4 @@
             <point key="canvasLocation" x="995" y="336"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="axH-Fu-HgB"/>
-    </inferredMetricsTieBreakers>
 </document>
