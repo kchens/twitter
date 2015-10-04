@@ -207,6 +207,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzU-1k-aiO">
                                 <rect key="frame" x="279" y="285" width="42" height="30"/>
                                 <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="onTweet:" destination="XXP-1K-fP4" eventType="touchUpInside" id="Orz-Tl-FCe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

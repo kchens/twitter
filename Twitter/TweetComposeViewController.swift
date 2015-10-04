@@ -8,8 +8,11 @@
 
 import UIKit
 
-class TweetComposeViewController: UIViewController {
+class TweetComposeViewController: UIViewController, UITextViewDelegate {
 
+    let tweetOriginalText = "Enter your tweet here."
+    var tweetUserInputText = ""
+    
     @IBOutlet weak var tweetUserImageView: UIImageView!
     @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
@@ -19,7 +22,6 @@ class TweetComposeViewController: UIViewController {
         tweetUserImageView.setImageWithURL(NSURL(string: User.currentUser!.profileImageUrl!))
         tweetUserNameLabel.text = User.currentUser!.name
         tweetUserScreenNameLabel.text = User.currentUser!.screenname
-        
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +30,22 @@ class TweetComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func onTweet(sender: AnyObject) {
+        var tweetDictionary = [String: String]()
+        tweetDictionary["status"] = self.tweetBoxTextView.text
+    
+        TwitterClient.sharedInstance.postTweet(tweetDictionary) { (tweet, error) -> () in
+            print("Back in tweetcomposeviewcontroller")
+            if tweet == nil {
+                print("Did not post tweet correctly")
+            } else {
+                print("Submitted new tweet")
+                // View has a navigation controller
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

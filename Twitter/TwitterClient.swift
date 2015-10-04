@@ -101,4 +101,17 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 self.loginCompletion?(user: nil, error: homeTimelineError)
             })
     }
+    
+    func postTweet(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: params,
+            success: { (operation, response) -> Void in
+                print("Posted Tweet Successfully")
+                print(response)
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            }) { (operation, error) -> Void in
+                print("Posting Tweet error:  \(error)")
+                completion(tweet: nil, error: error)
+        }
+    }
 }
