@@ -126,6 +126,7 @@
                                             <outlet property="tweetUserImageView" destination="ecV-5h-lEM" id="eLd-rB-fgB"/>
                                             <outlet property="tweetUserNameLabel" destination="CVt-px-KM2" id="vL2-Ow-FV3"/>
                                             <outlet property="tweetUserScreenName" destination="z6B-fs-Bar" id="cRY-jN-GAu"/>
+                                            <segue destination="pr5-Pd-YSY" kind="show" id="X4V-WQ-imF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -248,6 +249,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aP-Am-gCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2476" y="337"/>
+        </scene>
+        <!--Tweet Details View Controller-->
+        <scene sceneID="G2I-xg-owc">
+            <objects>
+                <viewController id="pr5-Pd-YSY" customClass="TweetDetailsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6W5-tZ-uYt"/>
+                        <viewControllerLayoutGuide type="bottom" id="mi8-Wj-mnG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Fa-0Q-Y4z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HELLO!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSM-33-cu7">
+                                <rect key="frame" x="75" y="95" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxJ-Wk-GKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476" y="1033"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yQe-Xn-mor">

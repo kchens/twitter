@@ -41,6 +41,7 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
             } else {
                 print("Submitted new tweet")
                 // View has a navigation controller
+                // Shows tweetsViewController immediately after composing a tweet.
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
