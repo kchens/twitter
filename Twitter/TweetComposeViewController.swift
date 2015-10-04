@@ -38,6 +38,7 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
             print("Back in tweetcomposeviewcontroller")
             if tweet == nil {
                 print("Did not post tweet correctly")
+//                 tweets.prepend(tweet)
             } else {
                 print("Submitted new tweet")
                 // View has a navigation controller

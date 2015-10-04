@@ -306,6 +306,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-Tf-emJ">
                                 <rect key="frame" x="32" y="264" width="56" height="30"/>
                                 <state key="normal" title="Retweet"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="5k5-DO-xNV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

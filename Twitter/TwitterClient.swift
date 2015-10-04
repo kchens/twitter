@@ -105,12 +105,23 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func postTweet(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
         POST("1.1/statuses/update.json", parameters: params,
             success: { (operation, response) -> Void in
-                print("Posted Tweet Successfully")
+                print("TwitterClient: Posted Tweet Successfully")
                 print(response)
                 let tweet = Tweet(dictionary: response as! NSDictionary)
                 completion(tweet: tweet, error: nil)
             }) { (operation, error) -> Void in
-                print("Posting Tweet error:  \(error)")
+                print("TwitterClient: Posting Tweet error:  \(error)")
+                completion(tweet: nil, error: error)
+        }
+    }
+    
+    func retweet(tweetId: Int?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/retweet/\(tweetId!).json", parameters: nil, success: { (operation, response) -> Void in
+                print("TwitterClient: Retweeted!!!")
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            }) { (operation, error) -> Void in
+                print("TwitterClient: RETWEET ERROR")
                 completion(tweet: nil, error: error)
         }
     }

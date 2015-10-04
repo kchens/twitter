@@ -18,6 +18,15 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var tweetCreatedAtLabel: UILabel!
     @IBOutlet weak var tweetDescriptionLabel: UILabel!
     
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweet(tweet.tweetId) { (tweet, error) -> () in
+            if tweet == nil {
+                print("TweetDetailsViewController - Retweeted error: \(error)")
+            } else {
+                print("TweetDetailsViewController - Got retweeted")
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
