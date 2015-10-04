@@ -18,15 +18,6 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var tweetCreatedAtLabel: UILabel!
     @IBOutlet weak var tweetDescriptionLabel: UILabel!
     
-    @IBAction func onRetweet(sender: AnyObject) {
-        TwitterClient.sharedInstance.retweet(tweet.tweetId) { (tweet, error) -> () in
-            if tweet == nil {
-                print("TweetDetailsViewController - Retweeted error: \(error)")
-            } else {
-                print("TweetDetailsViewController - Got retweeted")
-            }
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +35,26 @@ class TweetDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweet(tweet.tweetId) { (tweet, error) -> () in
+            if tweet == nil {
+                print("TweetDetailsViewController - Retweeted error: \(error)")
+            } else {
+                print("TweetDetailsViewController - Got retweeted")
+            }
+        }
+    }
+    
+    @IBAction func onFavorite(sender: AnyObject) {
+        TwitterClient.sharedInstance.favorite(tweet.tweetId) { (tweet, error) -> () in
+            if tweet == nil {
+                print("TweetDetailsViewController - Favorited error: \(error)")
+            } else {
+                print("TweetDetailsViewController - Got favorited")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

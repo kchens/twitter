@@ -298,6 +298,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-RO-lYb">
                                 <rect key="frame" x="273" y="264" width="55" height="30"/>
                                 <state key="normal" title="Favorite"/>
+                                <connections>
+                                    <action selector="onFavorite:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="fc8-uS-9D9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-hy-Jh8">
                                 <rect key="frame" x="511" y="264" width="39" height="30"/>
@@ -307,7 +310,7 @@
                                 <rect key="frame" x="32" y="264" width="56" height="30"/>
                                 <state key="normal" title="Retweet"/>
                                 <connections>
-                                    <action selector="onRetweet:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="5k5-DO-xNV"/>
+                                    <action selector="onRetweet:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="D0b-wG-Lro"/>
                                 </connections>
                             </button>
                         </subviews>
