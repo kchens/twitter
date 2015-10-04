@@ -10,8 +10,22 @@ import UIKit
 
 class TweetDetailsViewController: UIViewController {
 
+    var tweet: Tweet!
+    
+    @IBOutlet weak var tweetUserImageView: UIImageView!
+    @IBOutlet weak var tweetUserNameLabel: UILabel!
+    @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
+    @IBOutlet weak var tweetCreatedAtLabel: UILabel!
+    @IBOutlet weak var tweetDescriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tweetUserImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!))
+        tweetUserNameLabel.text = tweet.user?.name
+        tweetUserScreenNameLabel.text = tweet.user?.screenname
+        tweetCreatedAtLabel.text = tweet.createdAtFormatted
+        tweetDescriptionLabel.text = tweet.text
 
         // Do any additional setup after loading the view.
     }
