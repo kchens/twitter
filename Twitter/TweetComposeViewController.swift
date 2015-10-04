@@ -9,16 +9,17 @@
 import UIKit
 
 class TweetComposeViewController: UIViewController, UITextViewDelegate {
-
-    let tweetOriginalText = "Enter your tweet here."
-    var tweetUserInputText = ""
-    var tweet: Tweet!
     
     @IBOutlet weak var tweetUserImageView: UIImageView!
     @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
     @IBOutlet weak var tweetBoxTextView: UITextView!
     @IBOutlet weak var tweetCharCountLabel: UILabel!
+
+    let tweetOriginalText = "Enter your tweet here."
+    var tweetUserInputText = ""
+    var tweet: Tweet!
+    var originalTextColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
         tweetUserScreenNameLabel.text = User.currentUser!.screenname
         
         tweetBoxTextView.delegate = self
+        originalTextColor = tweetBoxTextView.textColor
         
         if tweet == nil {
             print("ComposeVC came from TweetsVC")
@@ -95,6 +97,8 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
         let characterCount = 140 - tweetBoxTextView.text.characters.count
         if characterCount < 0 {
             tweetCharCountLabel.textColor = UIColor.redColor()
+        } else {
+            tweetCharCountLabel.textColor = originalTextColor
         }
         tweetCharCountLabel.text = String(characterCount)
     }
