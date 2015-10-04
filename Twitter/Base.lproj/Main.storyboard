@@ -218,7 +218,7 @@
                                     <navigationItem title="Title" id="N6n-eZ-6Df">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="Ft7-YX-WZ4">
                                             <connections>
-                                                <action selector="onClose:" destination="XXP-1K-fP4" id="iSP-Vv-klR"/>
+                                                <action selector="onClose:" destination="XXP-1K-fP4" id="GQ7-lA-Qba"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -318,7 +318,7 @@
                                 <rect key="frame" x="511" y="264" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
                                 <connections>
-                                    <action selector="onReply:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="Hu6-4G-IH8"/>
+                                    <segue destination="XXP-1K-fP4" kind="presentation" identifier="TweetReplySegue" id="JmF-Tw-UkI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-Tf-emJ">
@@ -385,4 +385,7 @@
             <point key="canvasLocation" x="995" y="336"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JmF-Tw-UkI"/>
+    </inferredMetricsTieBreakers>
 </document>

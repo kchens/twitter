@@ -12,17 +12,25 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
 
     let tweetOriginalText = "Enter your tweet here."
     var tweetUserInputText = ""
+    var tweet: Tweet!
     
     @IBOutlet weak var tweetUserImageView: UIImageView!
     @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
     @IBOutlet weak var tweetBoxTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetUserImageView.setImageWithURL(NSURL(string: User.currentUser!.profileImageUrl!))
         tweetUserNameLabel.text = User.currentUser!.name
         tweetUserScreenNameLabel.text = User.currentUser!.screenname
-        // Do any additional setup after loading the view.
+        
+        if tweet == nil {
+            print("ComposeVC came from TweetsVC")
+        } else {
+            print("ComposeVC came from TweetDetailsVC")
+            tweetBoxTextView.text = (tweet.user?.screenname)! + self.tweetBoxTextView.text
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,17 +42,33 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
         var tweetDictionary = [String: String]()
         tweetDictionary["status"] = self.tweetBoxTextView.text
     
-        TwitterClient.sharedInstance.postTweet(tweetDictionary) { (tweet, error) -> () in
-            print("Back in tweetcomposeviewcontroller")
-            if tweet == nil {
-                print("Did not post tweet correctly")
-//                 tweets.prepend(tweet)
-            } else {
-                print("Submitted new tweet")
-                // View has a navigation controller
-                // Shows tweetsViewController immediately after composing a tweet.
-                self.navigationController?.popToRootViewControllerAnimated(true)
+        if tweet == nil {
+            TwitterClient.sharedInstance.postTweet(tweetDictionary) { (tweet, error) -> () in
+                print("Back in tweetcomposeviewcontroller")
+                if tweet == nil {
+                    print("Did not post tweet correctly")
+    //                 tweets.prepend(tweet)
+                } else {
+                    print("Submitted new tweet")
+                    // View has a navigation controller
+                    // Shows tweetsViewController immediately after composing a tweet.
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
             }
+        }
+        else {
+            let replyTweet = self.tweet
+            let replyTweetText = "@" + (replyTweet.user?.screenname)! + self.tweetBoxTextView.text
+            
+            TwitterClient.sharedInstance.reply(self.tweetBoxTextView.text, tweet: replyTweet, completion: { (tweet, error) -> () in
+                print("TweetComposeVC - Reply")
+                if tweet == nil {
+                    print("Did not reply correctly")
+                } else {
+                    print("Replied correctly")
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+            })
         }
     }
     

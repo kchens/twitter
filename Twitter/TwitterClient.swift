@@ -128,11 +128,27 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     
     func favorite(tweetId: Int?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
         POST("1.1/favorites/create.json?id=\(tweetId!)", parameters: nil, success: { (operation, response) -> Void in
-            print("TwitterClient: Favorited!!!")
-            let tweet = Tweet(dictionary: response as! NSDictionary)
-            completion(tweet: tweet, error: nil)
+                print("TwitterClient: Favorited!!!")
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
             }) { (operation, error) -> Void in
                 print("TwitterClient: Favorited ERROR")
+                completion(tweet: nil, error: error)
+        }
+    }
+    
+    func reply(status: String?, tweet: Tweet, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        var params = [String: String]()
+        params["status"] = status
+        params["in_reply_to_status_id"] = String(tweet.tweetId!)
+        print("params: \(tweet.tweetId!)")
+        
+        POST("1.1/statuses/update.json", parameters: params, success: { (operation, response) -> Void in
+                print("TwitterClient: Replied!!!")
+
+                completion(tweet: tweet, error: nil)
+            }) { (operation, error) -> Void in
+                print("TwitterClient: Reply ERROR")
                 completion(tweet: nil, error: error)
         }
     }
