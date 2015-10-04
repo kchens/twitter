@@ -126,7 +126,7 @@
                                             <outlet property="tweetUserImageView" destination="ecV-5h-lEM" id="eLd-rB-fgB"/>
                                             <outlet property="tweetUserNameLabel" destination="CVt-px-KM2" id="vL2-Ow-FV3"/>
                                             <outlet property="tweetUserScreenName" destination="z6B-fs-Bar" id="cRY-jN-GAu"/>
-                                            <segue destination="pr5-Pd-YSY" kind="show" id="X4V-WQ-imF"/>
+                                            <segue destination="pr5-Pd-YSY" kind="show" identifier="TweetDetailsSegue" id="X4V-WQ-imF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -143,7 +143,7 @@
                     <navigationItem key="navigationItem" id="iH4-q0-3Gd">
                         <barButtonItem key="leftBarButtonItem" title="Compose" id="GhG-NW-pJh">
                             <connections>
-                                <segue destination="XXP-1K-fP4" kind="show" id="axH-Fu-HgB"/>
+                                <segue destination="XXP-1K-fP4" kind="presentation" identifier="TweetComposeSegue" id="ilU-jg-IU4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="v6c-53-Hwh">
@@ -212,6 +212,18 @@
                                     <action selector="onTweet:" destination="XXP-1K-fP4" eventType="touchUpInside" id="Orz-Tl-FCe"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa1-oD-iEr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="N6n-eZ-6Df">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="Ft7-YX-WZ4">
+                                            <connections>
+                                                <action selector="onClose:" destination="XXP-1K-fP4" id="iSP-Vv-klR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -305,6 +317,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-hy-Jh8">
                                 <rect key="frame" x="511" y="264" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
+                                <connections>
+                                    <action selector="onReply:" destination="pr5-Pd-YSY" eventType="touchUpInside" id="Hu6-4G-IH8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY8-Tf-emJ">
                                 <rect key="frame" x="32" y="264" width="56" height="30"/>
