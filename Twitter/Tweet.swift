@@ -13,16 +13,18 @@ class Tweet: NSObject {
     var text: String?
     var createdAtString: String?
     var createdAt: NSDate?
+    var createdAtFormatted: String?
     
     init(dictionary: NSDictionary) {
+        super.init()
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
-        createdAt = dictionary["created_at"] as? NSDate
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = formatter.dateFromString(createdAtString!)
+        createdAtFormatted = formatTimeElapsed(createdAt!)
     }
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {
@@ -35,12 +37,12 @@ class Tweet: NSObject {
         return tweets
     }
     
-    func formatTimeElapsed() -> String {
+    func formatTimeElapsed(sinceDate: NSDate) -> String {
         let formatter = NSDateComponentsFormatter()
         formatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Abbreviated
         formatter.collapsesLargestUnit = true
         formatter.maximumUnitCount = 1
-        let interval = NSDate().timeIntervalSinceDate(NSDate())
+        let interval = NSDate().timeIntervalSinceDate(sinceDate)
         return formatter.stringFromTimeInterval(interval)!
     }
 }

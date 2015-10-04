@@ -21,7 +21,7 @@ class TweetTableViewCell: UITableViewCell {
             self.tweetUserImageView.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!))
             self.tweetUserNameLabel.text = tweet.user?.name
             self.tweetUserScreenName.text = tweet.user?.screenname
-            self.tweetCreatedAtLabel.text = tweet.createdAtString
+            self.tweetCreatedAtLabel.text = tweet.createdAtFormatted
             self.tweetDescriptionLabel.text = tweet.text
         }
     }
