@@ -93,6 +93,9 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         // Reset a tweet character count to the characters here.
         let characterCount = 140 - tweetBoxTextView.text.characters.count
+        if characterCount < 0 {
+            tweetCharCountLabel.textColor = UIColor.redColor()
+        }
         tweetCharCountLabel.text = String(characterCount)
     }
     
