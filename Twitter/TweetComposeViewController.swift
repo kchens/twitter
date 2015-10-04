@@ -25,11 +25,13 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
         tweetUserNameLabel.text = User.currentUser!.name
         tweetUserScreenNameLabel.text = User.currentUser!.screenname
         
+        tweetBoxTextView.delegate = self
+        
         if tweet == nil {
             print("ComposeVC came from TweetsVC")
         } else {
             print("ComposeVC came from TweetDetailsVC")
-            tweetBoxTextView.text = (tweet.user?.screenname)! + self.tweetBoxTextView.text
+            tweetBoxTextView.text = (tweet.user?.screenname)! + " "
         }
     }
 
@@ -75,6 +77,17 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
     @IBAction func onClose(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        // When user starts editing text, make the text empty.
+        if tweet == nil {
+            if tweetBoxTextView.text != nil {
+                tweetBoxTextView.text = ""
+            }
+        }
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
