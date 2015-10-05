@@ -30,4 +30,6 @@ NOTES:  Decided to try and implement infinite scroll for an hour -- instead of i
 
 ### Walkthrough
 
-![Video Walkthrough](twitter.gif)
+![Portrait Walkthrough](twitter-part-one.gif)
+
+![Landscape Walkthrough](twitter-part-one-landscape.gif)
