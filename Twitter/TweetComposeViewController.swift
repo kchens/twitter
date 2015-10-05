@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol TweetComposeViewControllerDelegate {
+    optional func tweetComposeViewControllerDelegate(tweetComposeViewController: TweetComposeViewController, didComposeTweet tweet: Tweet)
+}
+
 class TweetComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var tweetUserImageView: UIImageView!
@@ -15,6 +19,8 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetUserScreenNameLabel: UILabel!
     @IBOutlet weak var tweetBoxTextView: UITextView!
     @IBOutlet weak var tweetCharCountLabel: UILabel!
+    
+    weak var delegate: TweetComposeViewControllerDelegate?
 
     let tweetOriginalText = "Enter your tweet here."
     var tweetUserInputText = ""
@@ -29,6 +35,7 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
         
         tweetBoxTextView.delegate = self
         originalTextColor = tweetBoxTextView.textColor
+        tweetBoxTextView.layer.cornerRadius = 5
         
         if tweet == nil {
             print("ComposeVC came from TweetsVC")
@@ -52,18 +59,19 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
                 print("Back in tweetcomposeviewcontroller")
                 if tweet == nil {
                     print("Did not post tweet correctly")
-    //                 tweets.prepend(tweet)
                 } else {
                     print("Submitted new tweet")
+                    self.delegate?.tweetComposeViewControllerDelegate!(self, didComposeTweet: tweet!)
                     // View has a navigation controller
                     // Shows tweetsViewController immediately after composing a tweet.
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 }
             }
         }
+        // User is Replying
         else {
             let replyTweet = self.tweet
-            let replyTweetText = "@" + (replyTweet.user?.screenname)! + self.tweetBoxTextView.text
+//            let replyTweetText = "@" + (replyTweet.user?.screenname)! + self.tweetBoxTextView.text
             
             TwitterClient.sharedInstance.reply(self.tweetBoxTextView.text, tweet: replyTweet, completion: { (tweet, error) -> () in
                 print("TweetComposeVC - Reply")
@@ -71,7 +79,9 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
                     print("Did not reply correctly")
                 } else {
                     print("Replied correctly")
+                    self.delegate?.tweetComposeViewControllerDelegate!(self, didComposeTweet: tweet!)
                     self.navigationController?.popToRootViewControllerAnimated(true)
+//                    self.navigationController?.popViewControllerAnimated(true)
                 }
             })
         }

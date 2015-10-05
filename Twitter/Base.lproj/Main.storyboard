@@ -185,7 +185,7 @@
                                     <constraint firstAttribute="width" constant="60" id="w76-xo-LCE"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Real Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGY-pJ-Ero">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Real Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGY-pJ-Ero">
                                 <rect key="frame" x="102" y="84" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,10 +213,13 @@
                                     <action selector="onTweet:" destination="XXP-1K-fP4" eventType="touchUpInside" id="Orz-Tl-FCe"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa1-oD-iEr">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oa1-oD-iEr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qlj-Jj-ZPw"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="N6n-eZ-6Df">
+                                    <navigationItem title="Compose" id="N6n-eZ-6Df">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="Ft7-YX-WZ4">
                                             <connections>
                                                 <action selector="onClose:" destination="XXP-1K-fP4" id="GQ7-lA-Qba"/>
@@ -234,28 +237,37 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fGY-pJ-Ero" firstAttribute="top" secondItem="d58-mI-xj2" secondAttribute="top" id="0I0-G5-CUt"/>
+                            <constraint firstItem="Oa1-oD-iEr" firstAttribute="centerX" secondItem="kXt-EH-DJf" secondAttribute="centerX" id="5pX-Wr-5tG"/>
                             <constraint firstItem="CGa-Ho-4md" firstAttribute="leading" secondItem="fGY-pJ-Ero" secondAttribute="leading" id="9q7-aR-Xr2"/>
                             <constraint firstItem="xzU-1k-aiO" firstAttribute="top" secondItem="4n7-Ra-f6i" secondAttribute="bottom" constant="8" id="AAg-SA-dPk"/>
                             <constraint firstItem="4n7-Ra-f6i" firstAttribute="top" secondItem="d58-mI-xj2" secondAttribute="bottom" constant="12" id="BXe-xP-v3u"/>
+                            <constraint firstAttribute="trailing" secondItem="Oa1-oD-iEr" secondAttribute="trailing" id="EGp-zB-9Dn"/>
                             <constraint firstItem="fGY-pJ-Ero" firstAttribute="leading" secondItem="d58-mI-xj2" secondAttribute="trailing" constant="8" id="EVD-me-G8a"/>
                             <constraint firstItem="CGa-Ho-4md" firstAttribute="bottom" secondItem="d58-mI-xj2" secondAttribute="bottom" id="ErT-vD-s0B"/>
                             <constraint firstItem="xzU-1k-aiO" firstAttribute="centerX" secondItem="kXt-EH-DJf" secondAttribute="centerX" id="G0z-3T-DkT"/>
                             <constraint firstItem="xzU-1k-aiO" firstAttribute="centerY" secondItem="kXt-EH-DJf" secondAttribute="centerY" id="IV4-f5-wfO"/>
-                            <constraint firstItem="CGa-Ho-4md" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fGY-pJ-Ero" secondAttribute="bottom" constant="12" id="MiK-gY-2Oj"/>
+                            <constraint firstItem="Oa1-oD-iEr" firstAttribute="top" secondItem="kXt-EH-DJf" secondAttribute="top" id="Ihi-oA-Eaj"/>
+                            <constraint firstItem="CGa-Ho-4md" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fGY-pJ-Ero" secondAttribute="bottom" constant="3" id="MiK-gY-2Oj"/>
                             <constraint firstItem="3iw-98-hJE" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kXt-EH-DJf" secondAttribute="trailingMargin" constant="8" id="NkP-3d-ehl"/>
                             <constraint firstItem="4n7-Ra-f6i" firstAttribute="centerY" secondItem="kXt-EH-DJf" secondAttribute="centerY" id="Oxm-Mg-TV2"/>
                             <constraint firstItem="3iw-98-hJE" firstAttribute="bottom" secondItem="CGa-Ho-4md" secondAttribute="bottom" id="Qfa-jn-nbl"/>
                             <constraint firstAttribute="trailing" secondItem="4n7-Ra-f6i" secondAttribute="trailing" constant="8" id="SKK-v5-tPE"/>
+                            <constraint firstItem="Oa1-oD-iEr" firstAttribute="leading" secondItem="kXt-EH-DJf" secondAttribute="leading" id="Z8h-vB-3Dn"/>
                             <constraint firstItem="d58-mI-xj2" firstAttribute="leading" secondItem="kXt-EH-DJf" secondAttribute="leading" constant="8" id="dgY-QL-l7X"/>
+                            <constraint firstItem="fGY-pJ-Ero" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oa1-oD-iEr" secondAttribute="bottom" constant="12" id="els-hR-6U3"/>
                             <constraint firstAttribute="trailing" secondItem="d58-mI-xj2" secondAttribute="trailing" constant="8" id="evZ-tW-bzl"/>
-                            <constraint firstItem="d58-mI-xj2" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="12" id="lF3-0m-i96"/>
-                            <constraint firstItem="fGY-pJ-Ero" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="12" id="lTB-XK-9t9"/>
+                            <constraint firstItem="d58-mI-xj2" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="30" id="lF3-0m-i96"/>
+                            <constraint firstItem="fGY-pJ-Ero" firstAttribute="top" secondItem="i20-yS-wdh" secondAttribute="bottom" constant="25" id="lTB-XK-9t9"/>
                             <constraint firstItem="4n7-Ra-f6i" firstAttribute="leading" secondItem="kXt-EH-DJf" secondAttribute="leading" constant="8" id="mG2-vO-2gQ"/>
                             <constraint firstItem="3iw-98-hJE" firstAttribute="baseline" secondItem="CGa-Ho-4md" secondAttribute="baseline" id="xiq-xh-efP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5pX-Wr-5tG"/>
                                 <exclude reference="evZ-tW-bzl"/>
+                                <exclude reference="0I0-G5-CUt"/>
+                                <exclude reference="lTB-XK-9t9"/>
                                 <exclude reference="Oxm-Mg-TV2"/>
                                 <exclude reference="IV4-f5-wfO"/>
                             </mask>
@@ -399,6 +411,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JmF-Tw-UkI"/>
+        <segue reference="ilU-jg-IU4"/>
     </inferredMetricsTieBreakers>
 </document>

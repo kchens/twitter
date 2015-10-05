@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetComposeViewControllerDelegate {
     
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
@@ -46,7 +46,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,9 +67,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
-        
         cell.tweet = self.tweets?[indexPath.row]
-        
         return cell
     }
     
@@ -80,7 +77,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TweetComposeSegue" {
-            segue.destinationViewController as! TweetComposeViewController
+            let tweetComposeViewController = segue.destinationViewController as! TweetComposeViewController
+            tweetComposeViewController.delegate = self
         } else if segue.identifier == "TweetDetailsSegue" {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)!
@@ -91,5 +89,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    func tweetComposeViewControllerDelegate(tweetComposeViewController: TweetComposeViewController, didComposeTweet tweet: Tweet) {
+        // insert tweet into tweets
+        // reload tableView
+        tweets?.insert(tweet, atIndex: 0)
+        self.tableView.reloadData()
     }
 }
