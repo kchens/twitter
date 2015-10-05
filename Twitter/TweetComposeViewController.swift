@@ -64,7 +64,10 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
                     self.delegate?.tweetComposeViewControllerDelegate!(self, didComposeTweet: tweet!)
                     // View has a navigation controller
                     // Shows tweetsViewController immediately after composing a tweet.
-                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    // What do these methods do? How does navigationController work?
+                    //                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    //                    self.navigationController?.popViewControllerAnimated(true)
                 }
             }
         }
@@ -80,7 +83,9 @@ class TweetComposeViewController: UIViewController, UITextViewDelegate {
                 } else {
                     print("Replied correctly")
                     self.delegate?.tweetComposeViewControllerDelegate!(self, didComposeTweet: tweet!)
-                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    // What do these methods do? How does navigationController work?
+//                    self.navigationController?.popToRootViewControllerAnimated(true)
 //                    self.navigationController?.popViewControllerAnimated(true)
                 }
             })
